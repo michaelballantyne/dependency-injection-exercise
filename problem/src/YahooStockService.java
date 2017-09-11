@@ -6,7 +6,7 @@ import java.net.URL;
 /** Stock price service that gets prices from Yahoo. 
  *  @author Michael Ballantyne and Zachary Morin */
 public final class YahooStockService {
-	public static final String yahooPath = "http://finance.yahoo.com/d/quotes.csv?s=%s&f=b";
+	public static final String yahooPath = "http://download.finance.yahoo.com/d/quotes.csv?s=%s&f=b";
 	
 	/** Get stock price from yahoo and return as a BigDecimal with two decimal places. */
 	public BigDecimal getPrice(String symbol) {
@@ -17,7 +17,7 @@ public final class YahooStockService {
 
 			String inputLine = in.readLine();
 			in.close();
-			
+
 			return new BigDecimal(inputLine);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
